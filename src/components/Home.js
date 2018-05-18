@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { PINK_PRIMARY, PINK_ALT,TEXT_PRIMARY, WHITE } from '../constants/Colors'
+import { PINK_PRIMARY, PINK_ALT, TEXT_PRIMARY, WHITE } from '../constants/Colors'
 import Logo from './Logo'
+import { Link } from 'react-router-dom'
 
 class Home extends Component {
     render() {
@@ -15,8 +16,8 @@ class Home extends Component {
                     </Text>
                 </Hero>
                 <Action >
-                    <a>注册</a>
-                    <a>登录</a>
+                    <Link to="/signup">注册</Link>
+                    <Link to="/login">登录</Link>
                 </Action>
             </Wrap>
         )
@@ -63,7 +64,7 @@ const Slogan = styled.div`
   opacity: 0.8;
   font-size: 20px;
 `
- const Action = styled.div`
+const Action = styled.div`
    display: flex;
    justify-content: space-around;
    padding: 80px 0;
