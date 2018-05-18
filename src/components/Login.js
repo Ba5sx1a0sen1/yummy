@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
+import { loginConfig } from '../constants/FormConfig'
+import Form from './Form'
 
 class Login extends Component {
   render() {
-    return <Wrap>登录</Wrap>
+    return <Form config={loginConfig} />
   }
 }
 
 export default Login
-
-const Wrap = styled.div``
