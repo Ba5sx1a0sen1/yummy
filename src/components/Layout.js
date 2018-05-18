@@ -9,7 +9,7 @@ class Layout extends Component {
   render() {
     return (
       <Wrap>
-        <Header>页面标题</Header>
+        <Header>{this.props.title}</Header>
         <Content>
           <Inner>
             <Switch>
