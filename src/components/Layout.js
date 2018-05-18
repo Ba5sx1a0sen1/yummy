@@ -3,12 +3,14 @@ import { Route, Switch } from 'react-router-dom'
 import SignupContainer from '../containers/SignupContainer'
 import LoginContainer from '../containers/LoginContainer'
 import styled from 'styled-components'
+import AlertBoxContainer from '../containers/AlertBoxContainer'
 import { PINK_PRIMARY, PINK_ALT, TEXT_PRIMARY } from '../constants/Colors'
 
 class Layout extends Component {
   render() {
     return (
       <Wrap>
+        {this.props.isAlertShown&&<AlertBoxContainer />}
         <Header>{this.props.title}</Header>
         <Content>
           <Inner>
