@@ -20,7 +20,7 @@ class Form extends Component {
       obj[t.name] = this.state[t.name]
       return obj
     }, {})
-    console.log('data', data)
+    this.props.onFormSubmit(data)
   }
   render() {
     const { fields, goto } = this.props.config

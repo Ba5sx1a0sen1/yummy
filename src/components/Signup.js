@@ -7,7 +7,7 @@ class Signup extends Component {
     this.props.setTitle('注册')
   }
   render() {
-    return <Form config={signupConfig} />
+    return <Form config={signupConfig} onFormSubmit={this.props.signup}/>
   }
 }
 

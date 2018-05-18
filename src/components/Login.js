@@ -7,7 +7,7 @@ class Login extends Component {
     this.props.setTitle('登录')
   }
   render() {
-    return <Form config={loginConfig} />
+    return <Form config={loginConfig} onFormSubmit={this.props.login}/>
   }
 }
 
