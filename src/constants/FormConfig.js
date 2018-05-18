@@ -15,10 +15,10 @@ export const signupConfig = {
     ],
     goto: {
       text: '已有账号，直接登录',
-      link: '/login'
+      link: '/login',
+      title: '注册'
     }
   }
-  
   export const loginConfig = {
     fields: [
       {
@@ -32,6 +32,7 @@ export const signupConfig = {
     ],
     goto: {
       text: '没有账号，请先注册',
-      link: '/signup'
+      link: '/signup',
+      title: '登录'
     }
   }
