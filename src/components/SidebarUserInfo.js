@@ -4,12 +4,12 @@ import Avatar from './Avatar'
 import avatar from '../assets/avatar.png'
 import { Link } from 'react-router-dom'
 
-const UserInfo = ({ isAuthenticated,logout }) => (
+const UserInfo = ({ isAuthenticated,logout,currentUser }) => (
     <Wrap>
         <CenteredAvatar avatar={avatar} size="100" />
         {isAuthenticated && (
             <Text>
-                <Name to="/profile">用户名</Name>
+                <Name to="/profile">{currentUser.username}</Name>
                 <Link to="" onClick={logout}>退出</Link>
             </Text>
         )}
