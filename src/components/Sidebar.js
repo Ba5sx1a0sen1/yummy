@@ -24,6 +24,7 @@ class Sidebar extends Component {
             <Link onClick={this.closeMenu} to="/">首页</Link>
             <Link onClick={this.closeMenu} to="/settings">个人中心</Link>
             <Link onClick={this.closeMenu} to="/dishes">猜你喜欢</Link>
+            <Link onClick={this.closeMenu} to="/dashboard">好友评论动态</Link>
           </div>
           <div className="bottom-button">
             <button onClick={this.closeMenu} className="bm-close-button">关闭</button>

@@ -8,7 +8,7 @@ import 'moment/locale/zh-cn'
 
 const DishCommentsItem = ({ comment }) => {
     const { content, user } = comment
-    const avatar = undefined
+    const { avatar } = user
     return (
         <Item>
             <Avatar avatar={avatarUrl(avatar)}
