@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 class DishBuyArea extends Component {
   render() {
-    const { dishesById, match } = this.props
+    const { dishesById, match, addToCart } = this.props
     const { id } = match.params
     const dish = dishesById[id] || {}
     return (
@@ -16,7 +16,7 @@ class DishBuyArea extends Component {
         <Price>
         {dish.price}元
         </Price>
-        <Icon>
+        <Icon onClick={() => addToCart(id)}>
           <DishBuyIcon color={GRAY} />
         </Icon>
         <Desc>

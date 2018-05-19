@@ -12,6 +12,7 @@ import { PrivateRoute } from '../utils/routerUtils'
 import DishContainer from '../containers/DishContainer'
 import UserContainer from "../containers/UserContainer"
 import DashboardContainer from '../containers/DashboardContainer'
+import CartButtonContainer from '../containers/CartButtonContainer'
 
 class Layout extends Component {
 
@@ -19,6 +20,7 @@ class Layout extends Component {
     const {isAuthenticated} = this.props
     return (
       <Wrap>
+        <CartButtonContainer />
         <SidebarContainer />
         {this.props.isAlertShown && <AlertBoxContainer />}
         <Header>{this.props.title}</Header>
