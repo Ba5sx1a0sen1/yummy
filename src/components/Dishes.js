@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Slider from 'react-slick'
 import styled from 'styled-components'
+import DishesCard from '../components/DishesCard'
 
 class Dishes extends Component {
     render() {
@@ -54,9 +55,4 @@ const Card = styled.div`
   padding-top: 5px;
   padding-bottom: 0;
   height: 100%;
-`
-
-const DishesCard = styled.div`
-  height: 70vh;
-  background: white;
 `
