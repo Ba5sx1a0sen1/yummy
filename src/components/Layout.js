@@ -13,6 +13,7 @@ import DishContainer from '../containers/DishContainer'
 import UserContainer from "../containers/UserContainer"
 import DashboardContainer from '../containers/DashboardContainer'
 import CartButtonContainer from '../containers/CartButtonContainer'
+import CartContainer from '../containers/CartContainer'
 
 class Layout extends Component {
 
@@ -33,6 +34,7 @@ class Layout extends Component {
               <Route path='/user/:id' component={UserContainer} />
               <Route path="/dish/:id" component={DishContainer} />
               <Route path='/dashboard' component={DashboardContainer} />
+              <PrivateRoute isAuthenticated={isAuthenticated} path="/cart" component={CartContainer} />
               <PrivateRoute
                 isAuthenticated={isAuthenticated}
                 path="/settings"
