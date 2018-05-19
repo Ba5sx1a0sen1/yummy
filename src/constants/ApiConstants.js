@@ -11,3 +11,4 @@ export const NEW_COMMENT_URL = `${API_HOSTNAME}/comment`
 export const avatarUrl = avatar => avatar
   ? `${API_HOSTNAME}/uploads/avatars/${avatar}`
   : `${API_HOSTNAME}/uploads/avatars/default-avatar.png`
+export const UPDATE_AVATAR_URL = `${API_HOSTNAME}/avatar`
