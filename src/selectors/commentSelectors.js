@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect'
+import { getCurrentUser } from './authSelectors'
 
 export const getComments = state => state.comment.all
 
@@ -12,4 +13,12 @@ export const getCommentsByDishId = createSelector(
     }
     return obj
   }, {})
+)
+
+export const getFriendComments = createSelector(
+  getComments,
+  getCurrentUser,
+  (comments, currentUser) => comments.filter(comment => {
+    return currentUser.followings && currentUser.followings.includes(comment.user._id)
+  })
 )

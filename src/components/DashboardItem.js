@@ -65,7 +65,7 @@ const Wrap = styled.div`
   width: 90%;
   margin: 10px auto;
   position: relative;
-  height: ${props => props.expand ? '280px' : '330px'};
+  height: ${props => props.expand ? '330px' : '290px'};
   transition: height .5s ease;
   .feed-card {
     position: absolute;
