@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import Avatar from './Avatar'
-import avatar from '../assets/avatar.png'
+import { avatarUrl } from '../constants/ApiConstants'
 import { Link } from 'react-router-dom'
 
 const UserInfo = ({ isAuthenticated,logout,currentUser }) => (
     <Wrap>
-        <CenteredAvatar avatar={avatar} size="100" />
+        <CenteredAvatar avatar={avatarUrl(currentUser.avatar)} size='100' />
         {isAuthenticated && (
             <Text>
                 <Name to="/settings">
