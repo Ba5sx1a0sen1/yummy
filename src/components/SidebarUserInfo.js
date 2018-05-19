@@ -9,7 +9,9 @@ const UserInfo = ({ isAuthenticated,logout,currentUser }) => (
         <CenteredAvatar avatar={avatar} size="100" />
         {isAuthenticated && (
             <Text>
-                <Name to="/profile">{currentUser.username}</Name>
+                <Name to="/settings">
+                  {currentUser.username}
+                </Name>
                 <Link to="" onClick={logout}>退出</Link>
             </Text>
         )}

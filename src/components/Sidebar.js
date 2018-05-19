@@ -19,11 +19,11 @@ class Sidebar extends Component {
     return (
       <Wrap>
         <Menu customCrossIcon={false} isOpen={isOpen}>
-          <UserInfo {...this.props} isAuthenticated={isAuthenticated}/>
+          <UserInfo {...this.props} closeMenu={this.closeMenu} isAuthenticated={isAuthenticated}/>
           <div className="bm-link-list">
-            <Link to="/">首页</Link>
-            <Link to="/profile">个人中心</Link>
-            <Link to="/dishes">猜你喜欢</Link>
+            <Link onClick={this.closeMenu} to="/">首页</Link>
+            <Link onClick={this.closeMenu} to="/settings">个人中心</Link>
+            <Link onClick={this.closeMenu} to="/dishes">猜你喜欢</Link>
           </div>
           <div className="bottom-button">
             <button onClick={this.closeMenu} className="bm-close-button">关闭</button>

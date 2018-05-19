@@ -1,5 +1,6 @@
 import React from 'react'
+import Settings from '../components/Settings'
 
-const SettingsContainer = props => <h1>个人设置页面</h1>
+const SettingsContainer = props => <Settings {...props} />
 
 export default SettingsContainer
