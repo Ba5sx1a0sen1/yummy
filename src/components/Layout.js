@@ -9,6 +9,7 @@ import { PINK_PRIMARY, PINK_ALT, TEXT_PRIMARY } from '../constants/Colors'
 import SettingsContainer from '../containers/SettingsContainer'
 import DishesContainer from '../containers/DishesContainer'
 import { PrivateRoute } from '../utils/routerUtils'
+import DishContainer from '../containers/DishContainer'
 
 class Layout extends Component {
 
@@ -25,6 +26,7 @@ class Layout extends Component {
               <Route path="/signup" component={SignupContainer} />
               <Route path="/login" component={LoginContainer} />
               <Route path='/dishes' component={DishesContainer} />
+              <Route path="/dish/:id" component={DishContainer} />
               <PrivateRoute
                 isAuthenticated={isAuthenticated}
                 path="/settings"
