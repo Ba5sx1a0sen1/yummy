@@ -7,6 +7,7 @@ import AlertBoxContainer from '../containers/AlertBoxContainer'
 import SidebarContainer from '../containers/SidebarContainer'
 import { PINK_PRIMARY, PINK_ALT, TEXT_PRIMARY } from '../constants/Colors'
 import SettingsContainer from '../containers/SettingsContainer'
+import DishesContainer from '../containers/DishesContainer'
 import { PrivateRoute } from '../utils/routerUtils'
 
 class Layout extends Component {
@@ -23,6 +24,7 @@ class Layout extends Component {
             <Switch>
               <Route path="/signup" component={SignupContainer} />
               <Route path="/login" component={LoginContainer} />
+              <Route path='/dishes' component={DishesContainer} />
               <PrivateRoute
                 isAuthenticated={isAuthenticated}
                 path="/settings"
