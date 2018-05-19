@@ -4,7 +4,7 @@ import { posterUrl } from '../constants/ApiConstants'
 
 class CartItem extends Component {
   render () {
-    const { name, poster, price } = this.props.dish
+    const { name, poster, price, _id ,quantity} = this.props.dish
     return (
       <Wrap>
         <Info>
@@ -19,13 +19,13 @@ class CartItem extends Component {
           </NamePriceWrap>
         </Info>
         <CartAction>
-          <Minus>
+          <Minus onClick={() => this.props.decrCartItem(_id)}>
             -
           </Minus>
           <ItemCount>
-            1
+          {quantity}
           </ItemCount>
-          <Plus>
+          <Plus onClick={() => this.props.incrCartItem(_id)}>
             +
           </Plus>
         </CartAction>

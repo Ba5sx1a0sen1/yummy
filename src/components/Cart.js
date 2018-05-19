@@ -4,25 +4,10 @@ import CartItem from './CartItem'
 
 class Cart extends Component {
   render() {
-    const dishes = [
-              {
-                '_id': '5a26738e8ed6687f81859d24',
-                'name': '提拉米苏',
-                'price': 23,
-                'poster': 'tlms.png',
-                'desc': '非常好吃'
-              },
-              {
-                '_id': '5a2683d98ed6687f81859d25',
-                'name': '黑森林',
-                'price': 12,
-                'poster': 'hsl.png',
-                'desc': '非常好吃'
-              }
-            ]
-            let itemList = dishes.map(dish =>
-              <CartItem key={dish._id} dish={dish} />
-            )
+    const { cartDishes, incrCartItem, decrCartItem } = this.props
+    let itemList = cartDishes.map(dish =>
+        <CartItem key={dish._id} {...{dish, incrCartItem, decrCartItem}} />
+     )       
     return (
       <Wrap>
         <Hero>
