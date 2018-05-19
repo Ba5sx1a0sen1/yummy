@@ -7,6 +7,7 @@ export const USER_BY_ID_URL = `${API_HOSTNAME}/user/:id`
 export const posterUrl = poster => `${API_HOSTNAME}/uploads/posters/${poster}`
 export const DISHES_URL = `${API_HOSTNAME}/dishes`
 export const COMMENTS_URL = `${API_HOSTNAME}/comments`
+export const NEW_COMMENT_URL = `${API_HOSTNAME}/comment`
 export const avatarUrl = avatar => avatar
   ? `${API_HOSTNAME}/uploads/avatars/${avatar}`
   : `${API_HOSTNAME}/uploads/avatars/default-avatar.png`

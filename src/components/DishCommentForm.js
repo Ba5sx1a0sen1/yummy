@@ -1,41 +1,50 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 class DishCommentForm extends Component {
-  state = {
-    text: ''
-  }
+    state = {
+        text: ''
+    }
 
-  handleChange = e => {
-    this.setState({
-      text: e.target.value
-    })
-  }
+    handleChange = e => {
+        this.setState({
+            text: e.target.value
+        })
+    }
 
-  submitComment = () => {
-    const { text } = this.state
-    console.log(text)
-    this.setState({
-      text: ''
-    })
-  }
+    submitComment = () => {
+        const { text } = this.state
+        const user = this.props.currentUserId
+        const dish = this.props.match.params.id
+        this.props.addComment({ text, user, dish })
+        this.setState({
+            text: ''
+        })
+    }
 
-  render() {
-    const commentForm = (
-      <Form>
-        <Input value={this.state.text}
-          onChange={this.handleChange}
-          type="text"
-        />
-        <Button onClick={this.submitComment} type="submit">评论</Button>
-      </Form>
-    )
-    return (
-      <div>
-        {commentForm}
-      </div>
-    )
-  }
+    render() {
+        const { isAuthenticated } = this.props
+        const commentForm = (
+            <Form>
+                <Input value={this.state.text}
+                    onChange={this.handleChange}
+                    type="text"
+                />
+                <Button onClick={this.submitComment} type="submit">评论</Button>
+            </Form>
+        )
+        const plzLogin = (
+            <PlzLogin>
+                发评论请先<Link to="/login">登录</Link>
+            </PlzLogin>
+        )
+        return (
+            <div>
+                {isAuthenticated ? commentForm : plzLogin}
+            </div>
+        )
+    }
 }
 
 export default DishCommentForm
@@ -74,5 +83,13 @@ const Button = styled.button`
   &:focus {
     border: 0;
     outline: 0;
+  }
+`
+
+const PlzLogin = styled.div`
+  padding: 20px;
+  color: #ccc;
+  a {
+    color: #FE5196;
   }
 `

@@ -7,7 +7,7 @@ class DishComments extends Component {
     componentDidMount = () => {
         this.props.setSubTitle({
             title: '评论',
-            details: `评论数: 0`
+            details: `发表一下你的意见吧`
         })
     }
 
