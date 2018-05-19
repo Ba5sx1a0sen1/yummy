@@ -8,7 +8,7 @@ import styled from 'styled-components'
 
 class CartButton extends Component {
   render() {
-    const cartCount = 2
+    const { cartCount } = this.props
     return (
       <Wrap to='/cart' >
         <No>

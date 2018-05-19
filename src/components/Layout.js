@@ -17,10 +17,10 @@ import CartButtonContainer from '../containers/CartButtonContainer'
 class Layout extends Component {
 
   render() {
-    const {isAuthenticated} = this.props
+    const {isAuthenticated,isCartEmpty} = this.props
     return (
       <Wrap>
-        <CartButtonContainer />
+        {!isCartEmpty && <CartButtonContainer />}
         <SidebarContainer />
         {this.props.isAlertShown && <AlertBoxContainer />}
         <Header>{this.props.title}</Header>

@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import DishBuyIcon from './DishBuyIcon'
-import { GRAY } from '../constants/Colors'
+import { BRAND_PINK,GRAY } from '../constants/Colors'
 import styled from 'styled-components'
 
 class DishBuyArea extends Component {
   render() {
-    const { dishesById, match, addToCart } = this.props
+    const { dishesById, match, addToCart,cartAddedIds } = this.props
     const { id } = match.params
     const dish = dishesById[id] || {}
+    const isInCart = cartAddedIds.includes(id)
     return (
       <Wrap>
         <Name>
@@ -17,7 +18,7 @@ class DishBuyArea extends Component {
         {dish.price}元
         </Price>
         <Icon onClick={() => addToCart(id)}>
-          <DishBuyIcon color={GRAY} />
+          <DishBuyIcon color={isInCart ? BRAND_PINK : GRAY} />
         </Icon>
         <Desc>
         {dish.desc}
