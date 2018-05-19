@@ -1,0 +1,1 @@
+export const getDishes = state => state.dish.all
