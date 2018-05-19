@@ -12,3 +12,9 @@ export const alert = (msg) => ({
 export const hideAlert = () => dispatch => {
   dispatch({ type: types.HIDE_ALERT })
 }
+
+export const setReferrerIfNeeded = location => dispatch => {
+  const referrer = location.state && location.state.from.pathname
+  referrer && dispatch({ type: types.SET_REFERRER, referrer }) &&
+    dispatch(alert('请先登录'))
+}

@@ -21,7 +21,19 @@ const alert = (state = { isShown: false, msg: '' }, action) => {
   }
 }
 
+const referrer = (state = '', action) => {
+  switch (action.type) {
+    case types.SET_REFERRER:
+      return action.referrer
+    case types.CLEAR_REFERRER:
+      return ''
+    default:
+      return state
+  }
+}
+
 export default combineReducers({
   title,
-  alert
+  alert,
+  referrer
 })
