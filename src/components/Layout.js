@@ -26,7 +26,6 @@ class Layout extends Component {
               <Route path="/signup" component={SignupContainer} />
               <Route path="/login" component={LoginContainer} />
               <Route path='/dishes' component={DishesContainer} />
-              <Route path='/settings' component={SettingsContainer} />
               <Route path="/dish/:id" component={DishContainer} />
               <PrivateRoute
                 isAuthenticated={isAuthenticated}

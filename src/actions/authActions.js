@@ -52,6 +52,7 @@ export const login = data => {
 
 export const logout = () => {
   history.push('/')
+  window.localStorage.removeItem('userId')
   return dispatch => dispatch({ type: types.LOGOUT })
 }
 
