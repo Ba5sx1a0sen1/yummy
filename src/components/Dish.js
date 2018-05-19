@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import DishBuyAreaContainer from '../containers/DishBuyAreaContainer'
+import { posterUrl } from '../constants/ApiConstants'
 
 class Dish extends Component {
     render() {
+        const { dishesById, match } = this.props
+        const { id } = match.params
+        const dish = dishesById[id] || {}
         return (
             <Wrap>
                 <ImgWrap>
-                    <Img />
+                    <Img poster={dish.poster} />
                 </ImgWrap>
                 <Card>
                     <DishBuyAreaContainer />
@@ -46,7 +50,10 @@ const ImgWrap = styled.div`
 `
 
 const Img = styled.div`
-  background: lightseagreen;
+  background: url(${props => posterUrl(props.poster)});
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 370px;
   width: 100%;
   height: 100%;
 `

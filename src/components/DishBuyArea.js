@@ -5,19 +5,22 @@ import styled from 'styled-components'
 
 class DishBuyArea extends Component {
   render() {
+    const { dishesById, match } = this.props
+    const { id } = match.params
+    const dish = dishesById[id] || {}
     return (
       <Wrap>
         <Name>
-          黑森林
+        {dish.name}
         </Name>
         <Price>
-          23元
+        {dish.price}元
         </Price>
         <Icon>
           <DishBuyIcon color={GRAY} />
         </Icon>
         <Desc>
-          好吃好吃
+        {dish.desc}
         </Desc>
       </Wrap>
     )
