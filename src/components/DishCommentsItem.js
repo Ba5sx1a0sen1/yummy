@@ -3,6 +3,8 @@ import Avatar from './Avatar'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { avatarUrl } from '../constants/ApiConstants'
+import moment from "moment"
+import 'moment/locale/zh-cn'
 
 const DishCommentsItem = ({ comment }) => {
     const { content, user } = comment
@@ -17,8 +19,8 @@ const DishCommentsItem = ({ comment }) => {
                         {user.username}
                     </Username>
                     <Time>
-                        三天前
-          </Time>
+                        {moment(comment.createdAt).fromNow()}
+                    </Time>
                 </UsernameTime>
                 <Content>
                     {content}
