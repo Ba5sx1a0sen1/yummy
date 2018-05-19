@@ -12,12 +12,9 @@ class DishComments extends Component {
     }
 
     render() {
-        const comments = [
-            {
-                _id: '1',
-                content: '不错不错'
-            }
-        ]
+        const { commentsByDishId, match } = this.props
+        const { id } = match.params
+        const comments = commentsByDishId[id] || []
         const commentsCopy = comments.slice()
         return (
             <div>

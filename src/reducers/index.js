@@ -3,9 +3,12 @@ import common from './common'
 import auth from './auth'
 import user from './user'
 import dish from './dish'
+import comment from './comment'
+
 export default combineReducers({
   common,
   auth,
   user,
-  dish
+  dish,
+  comment
 })

@@ -5,27 +5,27 @@ import { Link } from 'react-router-dom'
 import { avatarUrl } from '../constants/ApiConstants'
 
 const DishCommentsItem = ({ comment }) => {
-  const { content } = comment
-  const avatar = undefined
-  return (
-    <Item>
-      <Avatar avatar={avatarUrl(avatar)}
-        size="50" />
-      <Details>
-        <UsernameTime>
-          <Username to={`/user/id`}>
-            三毛
-          </Username>
-          <Time>
-            三天前
+    const { content, user } = comment
+    const avatar = undefined
+    return (
+        <Item>
+            <Avatar avatar={avatarUrl(avatar)}
+                size="50" />
+            <Details>
+                <UsernameTime>
+                    <Username to={`/user/${user._id}`}>
+                        {user.username}
+                    </Username>
+                    <Time>
+                        三天前
           </Time>
-        </UsernameTime>
-        <Content>
-          {content}
-        </Content>
-      </Details>
-    </Item>
-  )
+                </UsernameTime>
+                <Content>
+                    {content}
+                </Content>
+            </Details>
+        </Item>
+    )
 }
 
 export default DishCommentsItem
