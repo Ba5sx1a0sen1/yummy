@@ -5,3 +5,4 @@ export const LOGIN_URL = `${API_HOSTNAME}/user/login`
 export const USERS_URL = `${API_HOSTNAME}/users`
 export const USER_BY_ID_URL = `${API_HOSTNAME}/user/:id`
 export const posterUrl = poster => `${API_HOSTNAME}/uploads/posters/${poster}`
+export const DISHES_URL = `${API_HOSTNAME}/dishes`
