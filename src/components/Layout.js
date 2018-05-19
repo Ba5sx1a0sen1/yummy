@@ -10,6 +10,7 @@ import SettingsContainer from '../containers/SettingsContainer'
 import DishesContainer from '../containers/DishesContainer'
 import { PrivateRoute } from '../utils/routerUtils'
 import DishContainer from '../containers/DishContainer'
+import UserContainer from "../containers/UserContainer"
 
 class Layout extends Component {
 
@@ -26,6 +27,7 @@ class Layout extends Component {
               <Route path="/signup" component={SignupContainer} />
               <Route path="/login" component={LoginContainer} />
               <Route path='/dishes' component={DishesContainer} />
+              <Route path='/user/:id' component={UserContainer} />
               <Route path="/dish/:id" component={DishContainer} />
               <PrivateRoute
                 isAuthenticated={isAuthenticated}

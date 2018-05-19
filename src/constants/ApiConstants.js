@@ -12,3 +12,5 @@ export const avatarUrl = avatar => avatar
   ? `${API_HOSTNAME}/uploads/avatars/${avatar}`
   : `${API_HOSTNAME}/uploads/avatars/default-avatar.png`
 export const UPDATE_AVATAR_URL = `${API_HOSTNAME}/avatar`
+export const FOLLOW_URL = `${API_HOSTNAME}/user/follow`
+export const UNFOLLOW_URL = `${API_HOSTNAME}/user/unfollow`

@@ -1,6 +1,6 @@
 import * as types from '../constants/ActionTypes'
 import axios from 'axios'
-import { USERS_URL, UPDATE_AVATAR_URL } from '../constants/ApiConstants'
+import { USERS_URL, UPDATE_AVATAR_URL, FOLLOW_URL, UNFOLLOW_URL } from '../constants/ApiConstants'
 import { getCurrentUserId } from '../selectors/authSelectors'
 import { alert } from './'
 
@@ -16,10 +16,10 @@ export const fetchUsers = () => dispatch => {
 }
 
 const updateUser = (user) => ({
-    type: types.UPDATE_USER, user
+  type: types.UPDATE_USER, user
 })
 
-const sendAvatarRequest = (formData,dispatch) => {
+const sendAvatarRequest = (formData, dispatch) => {
   axios.post(UPDATE_AVATAR_URL, formData).then(
     res => {
       // console.log('request sent')
@@ -39,7 +39,7 @@ export const updateAvatar = e => (dispatch, getState) => {
     console.log('inside onload-------e.target.value', e.target.result)
     formData.append('userId', userId)
     formData.append('avatar', file)
-    sendAvatarRequest(formData,dispatch)
+    sendAvatarRequest(formData, dispatch)
   }
   console.log('after onload-----file', file)
   reader.readAsDataURL(file)
@@ -58,4 +58,33 @@ const checkFile = (file, dispatch) => {
   } else {
     return true
   }
+}
+
+export const unfollow = userId => (dispatch, getState) => {
+  const state = getState()
+  const currentUserId = getCurrentUserId(state)
+  let data = {
+    userId,
+    currentUserId
+  }
+  console.log('unfollow', data)
+  axios.post(UNFOLLOW_URL, data).then(
+    res => {
+      dispatch(updateUser(res.data.user))
+    }
+  )
+}
+
+export const follow = userId => (dispatch, getState) => {
+  const state = getState()
+  const currentUserId = getCurrentUserId(state)
+  let data = {
+    userId,
+    currentUserId
+  }
+  axios.post(FOLLOW_URL, data).then(
+    res => {
+      dispatch(updateUser(res.data.user))
+    }
+  )
 }

@@ -1,7 +1,7 @@
 import * as types from '../constants/ActionTypes'
 import { combineReducers } from 'redux'
-
-const isAuthenticated = (state = false, action) => {
+const initAuthState = window.localStorage.getItem('userId') ? true : false
+const isAuthenticated = (state = initAuthState, action) => {
     switch (action.type) {
         case types.LOGIN_SUCCESS:
         case types.SIGNUP_SUCCESS:

@@ -5,28 +5,35 @@ import { avatarUrl } from '../constants/ApiConstants'
 
 class User extends Component {
     render() {
+        const { match, usersById, currentUser, follow, unfollow } = this.props
+        const { id } = match.params
+        const isFriend = currentUser.followings && currentUser.followings.includes(id)
+        const user = usersById[id] || {}
+        const { username, avatar } = user
       return (
        <Wrap>
          <Holder />
          <Main>
            <StyledAvatar
              size={120}
-             avatar={avatarUrl('')}
+             avatar={avatarUrl(avatar)}
            />
            <Name>
-             用户名
+           {username}
            </Name>
            <Card>
              <Title>
                个性签名
              </Title>
              <div>
-               世界第一美食家
+               我是吃货吃货
              </div>
            </Card>
-           <Button>
-             follow
-           </Button>
+           {
+            isFriend
+              ? <Button onClick={() => unfollow(user._id)} > unfollow </Button>
+              : <Button onClick={() => follow(user._id)} > follow </Button>
+            }
          </Main>
        </Wrap>
       )
