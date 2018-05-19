@@ -6,6 +6,7 @@ import { getReferrer } from '../selectors'
 import * as types from '../constants/ActionTypes'
 
 export const signup = data => dispatch => {
+  dispatch({ type: types.SIGNUP_REQUEST })
   axios
     .post(SIGNUP_URL, data)
     .then(res => {
@@ -18,6 +19,7 @@ export const signup = data => dispatch => {
       if (err.response) {
         const { msg } = err.response.data
         // console.log('报错信息:'+msg)
+        dispatch({ type: types.SIGNUP_FAILURE })
         dispatch(alert(msg))
       }
     })
@@ -25,6 +27,7 @@ export const signup = data => dispatch => {
 
 export const login = data => {
   return (dispatch,getState) => {
+    dispatch({ type: types.LOGIN_REQUEST })
     axios
       .post(LOGIN_URL, data)
       .then(res => {
@@ -40,6 +43,7 @@ export const login = data => {
         if (err.response) {
           const { msg } = err.response.data
           // console.log(msg)
+          dispatch({ type: types.LOGIN_FAILURE })
           dispatch(alert(msg))
         }
       })

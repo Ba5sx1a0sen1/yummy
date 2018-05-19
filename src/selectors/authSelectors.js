@@ -10,3 +10,4 @@ export const getCurrentUser = createSelector(
 )
 
 export const getIsAuthenticated = state => state.auth.isAuthenticated
+export const getIsAuthFetching = state => state.auth.isFetching

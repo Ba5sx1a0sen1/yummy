@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { loginConfig } from '../constants/FormConfig'
 import Form from './Form'
+import Spinner from 'react-spinner'
+import styled from 'styled-components'
 
 class Login extends Component {
   componentDidMount() {
@@ -8,8 +10,21 @@ class Login extends Component {
     this.props.setReferrerIfNeeded(this.props.location)
   }
   render() {
-    return <Form config={loginConfig} onFormSubmit={this.props.login}/>
+    const { isFetching } = this.props
+    return (
+      <Wrap>
+        {isFetching ? (
+          <Spinner />
+        ) : (
+            <Form config={loginConfig} onFormSubmit={this.props.login} />
+          )}
+      </Wrap>
+    )
   }
 }
 
 export default Login
+
+const Wrap = styled.div`
+  height: 100%;
+`
