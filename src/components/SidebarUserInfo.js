@@ -4,21 +4,23 @@ import Avatar from './Avatar'
 import avatar from '../assets/avatar.png'
 import { Link } from 'react-router-dom'
 
-const UserInfo = () => (
-  <Wrap>
-    <CenteredAvatar avatar={avatar} size="100" />
-    <Text>
-      <Name to="/profile">用户名</Name>
-      <Link to="">退出</Link>
-    </Text>
-  </Wrap>
+const UserInfo = ({ isAuthenticated,logout }) => (
+    <Wrap>
+        <CenteredAvatar avatar={avatar} size="100" />
+        {isAuthenticated && (
+            <Text>
+                <Name to="/profile">用户名</Name>
+                <Link to="" onClick={logout}>退出</Link>
+            </Text>
+        )}
+    </Wrap>
 )
 
 export default UserInfo
 
 const Wrap = styled.div``
 
-const Name = styled(Link)`
+const Name = styled(Link) `
   display: inline-block;
   padding-right: 5px;
   border-right: 2px solid #f77062;
@@ -36,6 +38,6 @@ const Text = styled.div`
   }
 `
 
-const CenteredAvatar = styled(Avatar)`
+const CenteredAvatar = styled(Avatar) `
   margin: 0 auto;
 `

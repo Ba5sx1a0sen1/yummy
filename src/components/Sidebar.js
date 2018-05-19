@@ -14,11 +14,12 @@ class Sidebar extends Component {
     })
   }
   render() {
+    const { isAuthenticated } = this.props
     const { isOpen } = this.state
     return (
       <Wrap>
         <Menu customCrossIcon={false} isOpen={isOpen}>
-          <UserInfo />
+          <UserInfo {...this.props} isAuthenticated={isAuthenticated}/>
           <div className="bm-link-list">
             <Link to="/">首页</Link>
             <Link to="/profile">个人中心</Link>
