@@ -4,7 +4,7 @@ import CartItem from './CartItem'
 
 class Cart extends Component {
   render() {
-    const { cartDishes, incrCartItem, decrCartItem,total } = this.props
+    const { cartDishes, incrCartItem, decrCartItem,total,checkout } = this.props
     let itemList = cartDishes.map(dish =>
         <CartItem key={dish._id} {...{dish, incrCartItem, decrCartItem}} />
      )       
@@ -19,7 +19,7 @@ class Cart extends Component {
           <ItemList>
             {itemList}
           </ItemList>
-          <CheckoutButton>
+          <CheckoutButton onClick={checkout}>
             结算
           </CheckoutButton>
         </ListWrap>

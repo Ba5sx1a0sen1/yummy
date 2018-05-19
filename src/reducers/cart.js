@@ -7,12 +7,14 @@ const addedIds = (state = [], action) => {
       return state.indexOf(action.dishId) === -1
         ? [...state, action.dishId]
         : state
+    case types.CHECKOUT:
+        return []
     default:
       return state
   }
 }
 
-  const quantityById = (state = {} , action) => {
+const quantityById = (state = {} , action) => {
   const { dishId } = action
   switch (action.type) {
     case types.ADD_TO_CART:
@@ -31,6 +33,8 @@ const addedIds = (state = [], action) => {
         ...state,
         [dishId]: state[dishId] - 1
       }
+    case types.CHECKOUT:
+        return {}
     default:
       return state
   }
