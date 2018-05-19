@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import DishBuyAreaContainer from '../containers/DishBuyAreaContainer'
 import { posterUrl } from '../constants/ApiConstants'
+import Section from './DishSection'
+import DishInfoContainer from '../containers/DishInfoContainer'
+import DishCommentsContainer from '../containers/DishCommentsContainer'
 
 class Dish extends Component {
     render() {
@@ -15,6 +18,12 @@ class Dish extends Component {
                 </ImgWrap>
                 <Card>
                     <DishBuyAreaContainer />
+                    <Section>
+                        <DishInfoContainer />
+                    </Section>
+                    <Section>
+                        <DishCommentsContainer />
+                    </Section>
                 </Card>
             </Wrap>
         )
