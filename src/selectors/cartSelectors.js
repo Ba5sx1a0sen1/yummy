@@ -26,3 +26,12 @@ export const getCartDishes = createSelector(
 )
 
 
+export const getTotal = createSelector(
+    getAddedIds,
+    getDishesById,
+    getQuantityById,
+    (addedIds, dishes, quantityById) => addedIds.reduce(
+        (total, id) => total + dishes[id].price * quantityById[id]
+        , 0
+    ).toFixed(2)
+)
