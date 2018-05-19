@@ -1,21 +1,23 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { posterUrl } from '../constants/ApiConstants'
 
 class DishesCard extends Component {
   render() {
+    const { dish } = this.props
     return (
-      <Wrap to={`/dish/id`} >
-        <Poster />
+        <Wrap to={`/dish/${dish._id}`} >
+        <Poster poster={dish.poster} />
         <Details>
           <Name>
-            黑森林
+            {dish.name}
           </Name>
           <Price>
-            23元
+            {dish.price}元
           </Price>
           <Desc>
-            非常好吃
+            {dish.desc}
             <Mask />
           </Desc>
         </Details>
@@ -39,7 +41,10 @@ const Wrap = styled(Link) `
 const Poster = styled.div`
   width: 100%;
   height: 210px;
-  background: lightseagreen;
+  background: url(${props => posterUrl(props.poster)});
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 370px;
 `
 
 const Details = styled.div`
